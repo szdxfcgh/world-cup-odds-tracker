@@ -1,0 +1,116 @@
+{
+  "matches": [
+    {
+      "id": 1,
+      "team1Id": 1,
+      "team2Id": 2,
+      "history": [
+        {
+          "date": "2021-07-28",
+          "competition": "奥运会男足",
+          "venue": "日本",
+          "score": "3-0",
+          "winner": "墨西哥"
+        },
+        {
+          "date": "2010-06-11",
+          "competition": "世界杯小组赛",
+          "venue": "南非",
+          "score": "1-1",
+          "winner": "平局"
+        },
+        {
+          "date": "2005-07-08",
+          "competition": "金杯赛",
+          "venue": "美国",
+          "score": "1-2",
+          "winner": "南非"
+        },
+        {
+          "date": "2000-06-07",
+          "competition": "友谊赛",
+          "venue": "美国",
+          "score": "4-2",
+          "winner": "墨西哥"
+        },
+        {
+          "date": "1993-06-06",
+          "competition": "友谊赛",
+          "venue": "美国",
+          "score": "4-0",
+          "winner": "墨西哥"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "team1Id": 3,
+      "team2Id": 4,
+      "history": [
+        {
+          "date": "2018-11-14",
+          "competition": "友谊赛",
+          "venue": "韩国",
+          "score": "1-0",
+          "winner": "韩国"
+        },
+        {
+          "date": "2005-06-12",
+          "competition": "友谊赛",
+          "venue": "韩国",
+          "score": "2-0",
+          "winner": "韩国"
+        },
+        {
+          "date": "2003-06-18",
+          "competition": "友谊赛",
+          "venue": "捷克",
+          "score": "1-0",
+          "winner": "捷克"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "team1Id": 1,
+      "team2Id": 3,
+      "history": [
+        {
+          "date": "2018-11-20",
+          "competition": "友谊赛",
+          "venue": "奥地利因斯布鲁克",
+          "score": "2-1",
+          "winner": "墨西哥"
+        },
+        {
+          "date": "2014-01-30",
+          "competition": "友谊赛",
+          "venue": "美国圣安东尼奥",
+          "score": "4-0",
+          "winner": "墨西哥"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "team1Id": 1,
+      "team2Id": 4,
+      "history": [
+        {
+          "date": "2022-06-05",
+          "competition": "友谊赛",
+          "venue": "捷克布拉格",
+          "score": "2-1",
+          "winner": "捷克"
+        },
+        {
+          "date": "2018-11-14",
+          "competition": "友谊赛",
+          "venue": "奥地利维也纳",
+          "score": "1-1",
+          "winner": "平局"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <radialGradient id="ballGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </radialGradient>
+    <filter id="ballShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="4"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#ballShadow)">
+    <circle cx="100" cy="96" r="72" fill="url(#ballGrad)" stroke="#555" stroke-width="2"/>
+    <!-- Pentagon (center) -->
+    <polygon points="100,70 118,82 112,103 88,103 82,82" fill="#333" stroke="#222" stroke-width="1"/>
+    <!-- Hexagons around -->
+    <polygon points="100,40 80,52 72,74 82,82 100,70 118,82 128,74 120,52" fill="white" stroke="#555" stroke-width="0.8"/>
+    <polygon points="72,74 52,88 46,112 64,118 82,110 88,103 82,82" fill="white" stroke="#555" stroke-width="0.8"/>
+    <polygon points="128,74 148,88 154,112 136,118 118,110 112,103 118,82" fill="white" stroke="#555" stroke-width="0.8"/>
+    <polygon points="82,110 64,118 68,140 90,148 108,140 112,118 88,103" fill="white" stroke="#555" stroke-width="0.8"/>
+    <polygon points="118,110 136,118 132,140 110,148 92,140 88,140 112,103" fill="white" stroke="#555" stroke-width="0.8"/>
+    <!-- Pentagon left -->
+    <polygon points="52,88 46,112 58,126 76,120 72,100" fill="#333" stroke="#222" stroke-width="0.8"/>
+    <!-- Pentagon right -->
+    <polygon points="148,88 154,112 142,126 124,120 128,100" fill="#333" stroke="#222" stroke-width="0.8"/>
+    <!-- Pentagon bottom-left -->
+    <polygon points="68,140 90,148 86,162 70,158 58,146" fill="#333" stroke="#222" stroke-width="0.8"/>
+    <!-- Pentagon bottom-right -->
+    <polygon points="132,140 110,148 114,162 130,158 142,146" fill="#333" stroke="#222" stroke-width="0.8"/>
+    <!-- Shading -->
+    <circle cx="100" cy="96" r="72" fill="url(#ballGrad)" opacity="0.1"/>
+  </g>
+</svg>
