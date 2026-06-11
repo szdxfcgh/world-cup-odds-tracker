@@ -33,14 +33,14 @@ export default function HomePage() {
       <section className="hero-shell">
         <div className="hero-inner">
           <div className="hero-copy">
-            <p className="hero-edition">WORLD CUP 26 / PREDICTION EDITION</p>
+            <p className="hero-edition">RAGNARÖK EDITION / TWILIGHT OF THE GODS</p>
             <h1 className="hero-title">
-              当代群星
-              <span>数据杂志</span>
+              诸神黄昏
+              <span>最终章</span>
             </h1>
             <p className="hero-lede">
+              梅西、C罗、莫德里奇……一个时代的最后舞步。数据记录他们留给世界杯的终章。
               以比赛日、夺冠指数与淘汰赛路径为核心的非官方预测项目。
-              七位当代球星汇聚同一版面，呈现 2026 世界杯的数据叙事。
             </p>
             <div className="hero-actions">
               <Link href="/matches" className="wc-button-primary">进入比赛中心</Link>
@@ -159,7 +159,7 @@ export default function HomePage() {
 
       <footer className="border-t border-[var(--wc-card-border)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-7 text-xs text-[var(--wc-text-muted)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <span>WORLD CUP 26 DATA MAGAZINE · 非官方预测项目</span>
+          <span>RAGNARÖK · 诸神黄昏数据杂志 · 非官方预测项目</span>
           <span>数据仅供学习与编辑展示，不构成投注建议</span>
         </div>
       </footer>

@@ -29,8 +29,8 @@ export default function Navigation({ currentPage }: NavigationProps) {
               26
             </span>
             <span>
-              <span className="block text-sm font-black tracking-[-0.03em] text-white">WORLD CUP DATA</span>
-              <span className="block font-mono text-[8px] tracking-[0.18em] text-[var(--wc-text-muted)]">INDEPENDENT MAGAZINE</span>
+              <span className="block text-sm font-black tracking-[-0.03em] text-white">RAGNARÖK</span>
+              <span className="block font-mono text-[8px] tracking-[0.18em] text-[var(--wc-text-muted)]">TWILIGHT OF THE GODS</span>
             </span>
           </Link>
 
