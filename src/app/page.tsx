@@ -3,8 +3,7 @@ import Navigation from '../components/Navigation';
 import FeaturedMatch from '../components/FeaturedMatch';
 import TeamMark from '../components/TeamMark';
 import EditorialIcon from '../components/EditorialIcon';
-import teamsData from '../../data/teams.json';
-import matchesData from '../../data/matches.json';
+import { readMatches, readTeams } from '../lib/dataSource';
 import oddsData from '../../data/outrightOddsSnapshots.json';
 import type { Match, Team } from '../lib/types';
 
@@ -16,14 +15,14 @@ const navCards = [
   { href: '/knockout', icon: 'bracket' as const, title: '淘汰赛', desc: '32 强至决赛的完整路径' },
 ];
 
-export default function HomePage() {
-  const teams = teamsData as Team[];
-  const matches = matchesData as Match[];
+export default async function HomePage() {
+  const teams = await readTeams();
+  const matches = await readMatches();
   const featuredMatch = matches[0];
   const getTeam = (id: number) => teams.find((team) => team.id === id) as Team;
-  const favorites = oddsData.snapshots
-    .filter((snapshot) => snapshot.snapshotStage === 'pre_tournament')
-    .sort((a, b) => a.decimalOdds - b.decimalOdds)
+  const favorites = (oddsData as any).snapshots
+    .filter((snapshot: any) => snapshot.snapshotStage === 'pre_tournament')
+    .sort((a: any, b: any) => a.decimalOdds - b.decimalOdds)
     .slice(0, 5);
 
   return (
@@ -31,17 +30,14 @@ export default function HomePage() {
       <Navigation currentPage="home" />
 
       <section className="hero-shell">
+        <div className="hero-vignette" />
+        <div className="hero-embers">
+          <span className="ember" /><span className="ember" /><span className="ember" />
+          <span className="ember" /><span className="ember" /><span className="ember" />
+          <span className="ember" /><span className="ember" />
+        </div>
         <div className="hero-inner">
           <div className="hero-copy">
-            <p className="hero-edition">RAGNARÖK EDITION / TWILIGHT OF THE GODS</p>
-            <h1 className="hero-title">
-              诸神黄昏
-              <span>最终章</span>
-            </h1>
-            <p className="hero-lede">
-              梅西、C罗、莫德里奇……一个时代的最后舞步。数据记录他们留给世界杯的终章。
-              以比赛日、夺冠指数与淘汰赛路径为核心的非官方预测项目。
-            </p>
             <div className="hero-actions">
               <Link href="/matches" className="wc-button-primary">进入比赛中心</Link>
               <Link href="/odds" className="wc-button-secondary">查看夺冠指数</Link>
@@ -73,6 +69,8 @@ export default function HomePage() {
             awayTeam={getTeam(featuredMatch.awayTeamId)}
           />
         </section>
+
+        <hr className="section-divider" />
 
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr]">
           <section>
@@ -137,6 +135,8 @@ export default function HomePage() {
           </section>
         </div>
 
+        <hr className="section-divider" />
+
         <section>
           <div className="section-heading">
             <div>
@@ -157,12 +157,13 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-[var(--wc-card-border)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-7 text-xs text-[var(--wc-text-muted)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <span>RAGNARÖK · 诸神黄昏数据杂志 · 非官方预测项目</span>
-          <span>数据仅供学习与编辑展示，不构成投注建议</span>
+      <footer className="border-t border-[rgba(201,148,46,.08)]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-[11px] text-[var(--wc-text-muted)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8" style={{ letterSpacing: '.04em' }}>
+          <span>RAGNARÖK · 诸神黄昏数据杂志</span>
+          <span>非官方预测项目 · 数据仅供学习与编辑展示</span>
         </div>
       </footer>
+      <div className="film-grain" aria-hidden="true" />
     </div>
   );
 }

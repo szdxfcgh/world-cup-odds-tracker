@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/fetch-matches?secret=twilight_zone_2026_secret_protocol",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}

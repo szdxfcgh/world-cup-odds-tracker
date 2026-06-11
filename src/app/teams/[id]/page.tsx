@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navigation from '../../../components/Navigation';
 import TeamMark from '../../../components/TeamMark';
-import { Team } from '../../../lib/types';
-import teamsData from '../../../../data/teams.json';
+import { readTeams } from '../../../lib/dataSource';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
-  const team = teamsData.find((item) => item.id === Number(id));
+  const teams = await readTeams();
+  const team = teams.find((item) => item.id === Number(id));
   return {
     title: team ? team.nameCn : '球队详情',
     description: team ? `${team.nameCn} (${team.nameEn}) 的 2026 世界杯球队资料` : '球队详情',
@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function TeamDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const team = teamsData.find((item) => item.id === Number(id)) as Team | undefined;
+  const teams = await readTeams();
+  const team = teams.find((item) => item.id === Number(id));
   if (!team) notFound();
 
   const keyPlayers = team.keyPlayers?.split(',').map((player) => player.trim()).filter(Boolean) ?? [];

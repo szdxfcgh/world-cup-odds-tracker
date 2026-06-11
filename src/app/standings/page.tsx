@@ -3,17 +3,17 @@ import Navigation from '../../components/Navigation';
 import GroupStandingsComponent from '../../components/GroupStandings';
 import PageHeader from '../../components/PageHeader';
 import { calculateGroupStandings } from '../../lib/standings';
-import teamsData from '../../../data/teams.json';
-import matchesData from '../../../data/matches.json';
-import type { Team, Match } from '../../lib/types';
+import { readMatches, readTeams } from '../../lib/dataSource';
 
 export const metadata: Metadata = {
   title: '小组积分',
   description: '追踪 2026 世界杯各小组排名与积分变化',
 };
 
-export default function StandingsPage() {
-  const groups = calculateGroupStandings(teamsData as Team[], matchesData as Match[]);
+export default async function StandingsPage() {
+  const teams = await readTeams();
+  const matches = await readMatches();
+  const groups = calculateGroupStandings(teams, matches);
   return (
     <div className="min-h-screen">
       <Navigation currentPage="standings" />

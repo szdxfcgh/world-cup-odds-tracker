@@ -2,19 +2,17 @@ import type { Metadata } from 'next';
 import Navigation from '../../components/Navigation';
 import MatchCard from '../../components/MatchCard';
 import PageHeader from '../../components/PageHeader';
-import { Match, Team } from '../../lib/types';
-import matchesData from '../../../data/matches.json';
-import teamsData from '../../../data/teams.json';
+import { readMatches, readTeams } from '../../lib/dataSource';
 
 export const metadata: Metadata = {
   title: '比赛赛程',
   description: '查看 2026 世界杯比赛安排、开赛时间与预测分析',
 };
 
-export default function MatchesPage() {
-  const teams = teamsData as Team[];
-  const matches = matchesData as Match[];
-  const getTeamById = (id: number) => teams.find((team) => team.id === id) as Team;
+export default async function MatchesPage() {
+  const teams = await readTeams();
+  const matches = await readMatches();
+  const getTeamById = (id: number) => teams.find((team) => team.id === id)!;
 
   return (
     <div className="min-h-screen">

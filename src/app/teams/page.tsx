@@ -2,16 +2,15 @@ import type { Metadata } from 'next';
 import Navigation from '../../components/Navigation';
 import TeamCard from '../../components/TeamCard';
 import PageHeader from '../../components/PageHeader';
-import { Team } from '../../lib/types';
-import teamsData from '../../../data/teams.json';
+import { readTeams } from '../../lib/dataSource';
 
 export const metadata: Metadata = {
   title: '球队档案',
   description: '浏览 2026 世界杯 48 支参赛球队的详细资料',
 };
 
-export default function TeamsPage() {
-  const teams = teamsData as Team[];
+export default async function TeamsPage() {
+  const teams = await readTeams();
   return (
     <div className="min-h-screen">
       <Navigation currentPage="teams" />
