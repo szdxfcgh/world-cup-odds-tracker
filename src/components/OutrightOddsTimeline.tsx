@@ -106,7 +106,7 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
         <select
           value={effectiveTeamId}
           onChange={(e) => setSelectedTeamId(e.target.value)}
-          className="w-full max-w-xs px-4 py-2 border border-[var(--wc-card-border)] rounded-lg focus:ring-2 focus:ring-[var(--wc-emerald)] focus:border-[var(--wc-emerald)] outline-none transition-colors text-[var(--wc-text)] bg-white font-medium text-sm"
+          className="w-full max-w-xs px-4 py-2 border border-[var(--wc-card-border)] rounded-lg focus:ring-2 focus:ring-[var(--wc-emerald)] focus:border-[var(--wc-emerald)] outline-none transition-colors text-[var(--wc-text)] bg-[var(--wc-surface-muted)] font-medium text-sm"
         >
           {teams.map((t) => (
             <option key={t.id} value={t.id}>
@@ -140,17 +140,17 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
                 key={s.id}
                 className={`grid grid-cols-6 gap-4 px-4 py-3 rounded-lg border transition-colors ${
                   s.isEliminated
-                    ? 'bg-red-50 border-red-200'
+                    ? 'bg-[rgba(160,60,40,.06)] border-[rgba(160,60,40,.15)]'
                     : idx === teamSnapshots.length - 1 && s.snapshotStage === 'final_result' && s.decimalOdds === 1
-                    ? 'bg-amber-50 border-amber-300'
-                    : 'bg-white border-[var(--wc-card-border)] hover:bg-[var(--wc-bg)]'
+                    ? 'bg-[rgba(180,140,40,.08)] border-[rgba(180,140,40,.2)]'
+                    : 'bg-[rgba(255,255,255,.02)] border-[var(--wc-card-border)] hover:bg-[rgba(160,120,36,.04)]'
                 }`}
               >
                 <div>
                   <div className="font-medium text-[var(--wc-text)] text-sm">
                     {STAGE_LABELS[s.snapshotStage] ?? s.snapshotStage}
                   </div>
-                  <div className="text-xs text-slate-400">
+                  <div className="text-xs text-[var(--wc-text-muted)]">
                     {new Date(s.snapshotTime).toLocaleDateString('zh-CN')}
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
                   {prev && oddsChange !== 0 && (
                     <span
                       className={`ml-2 text-xs font-medium ${
-                        oddsChange < 0 ? 'text-emerald-600' : 'text-red-500'
+                        oddsChange < 0 ? 'text-[#8ab870]' : 'text-[#c87058]'
                       }`}
                     >
                       {oddsChange < 0 ? '↓' : '↑'} {Math.abs(oddsChange).toFixed(2)}
@@ -170,7 +170,7 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
 
                 <div>
                   <div className="flex items-center gap-2">
-                    <div className="flex-1 bg-slate-200 rounded-full h-2 max-w-[80px]">
+                    <div className="flex-1 bg-[rgba(255,255,255,.06)] rounded-full h-2 max-w-[80px]">
                       <div
                         className="bg-[var(--wc-emerald)] h-2 rounded-full transition-all duration-300"
                         style={{ width: `${Math.min(s.impliedProbability, 100)}%` }}
@@ -190,15 +190,15 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
 
                 <div>
                   {s.isEliminated ? (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(160,60,40,.12)] text-[#c87058]">
                       已淘汰
                     </span>
                   ) : s.snapshotStage === 'final_result' && s.decimalOdds === 1 ? (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-700">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(180,140,40,.12)] text-[#c9a84a]">
                       夺冠
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgba(80,130,60,.12)] text-[#8ab870]">
                       晋级中
                     </span>
                   )}
@@ -216,19 +216,19 @@ export default function OutrightOddsTimeline({ year = 2026 }: { year?: number })
       {/* Legend */}
       <div className="mt-6 pt-4 border-t border-[var(--wc-card-border)] flex flex-wrap gap-4 text-xs text-[var(--wc-text-secondary)]">
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full bg-emerald-500" />
+          <div className="w-3 h-3 rounded-full bg-[#8ab870]" />
           <span>赔率下降 = 被看好</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
+          <div className="w-3 h-3 rounded-full bg-[#c87058]" />
           <span>赔率上升 = 不被看好</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full bg-red-100 border border-red-300" />
+          <div className="w-3 h-3 rounded-full bg-[rgba(160,60,40,.2)] border border-[rgba(160,60,40,.3)]" />
           <span>已淘汰</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full bg-amber-100 border border-amber-300" />
+          <div className="w-3 h-3 rounded-full bg-[rgba(180,140,40,.2)] border border-[rgba(180,140,40,.3)]" />
           <span>夺冠</span>
         </div>
       </div>

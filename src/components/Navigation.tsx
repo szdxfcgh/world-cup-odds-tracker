@@ -21,7 +21,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-[rgba(201,148,46,.12)] bg-[#0a0706]/85 backdrop-blur-xl" style={{ boxShadow: '0 1px 20px rgba(201,148,46,.06)' }}>
+    <nav className="sticky top-0 z-50 border-b border-[rgba(180,140,40,.14)] bg-[#100c0a]/85 backdrop-blur-xl" style={{ boxShadow: '0 1px 20px rgba(180,140,40,.07)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-3" onClick={closeMobile}>
@@ -41,7 +41,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
                 href={item.href}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition-colors ${
                   currentPage === item.id
-                    ? 'bg-[var(--wc-emerald)] text-[#04110a]'
+                    ? 'bg-[var(--wc-emerald)] text-[#100c0a]'
                     : 'text-[var(--wc-text-secondary)] hover:bg-white/5 hover:text-white'
                 }`}
               >
@@ -74,7 +74,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
                 onClick={closeMobile}
                 className={`rounded-xl px-4 py-3 text-sm font-bold ${
                   currentPage === item.id
-                    ? 'bg-[var(--wc-emerald)] text-[#04110a]'
+                    ? 'bg-[var(--wc-emerald)] text-[#100c0a]'
                     : 'bg-white/5 text-[var(--wc-text-secondary)]'
                 }`}
               >

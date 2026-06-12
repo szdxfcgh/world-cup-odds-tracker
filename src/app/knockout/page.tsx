@@ -14,7 +14,7 @@ export default async function KnockoutPage() {
   return (
     <div className="min-h-screen">
       <Navigation currentPage="knockout" />
-      <main className="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <main className="mx-auto w-full max-w-[1600px] px-4 pt-6 pb-8 sm:px-6 lg:px-10 lg:pt-8 lg:pb-12">
         <PageHeader eyebrow="KNOCKOUT PATH" title="淘汰赛路径" description="从 32 强到决赛的种子位结构与晋级路线。" />
         <KnockoutBracket teams={teams} />
       </main>

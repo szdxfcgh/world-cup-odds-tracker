@@ -27,20 +27,20 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
   return (
     <div className="min-h-screen">
       <Navigation currentPage="teams" />
-      <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-10 lg:py-12">
         <article className="wc-card overflow-hidden">
           <header className="relative overflow-hidden border-b border-[var(--wc-card-border)] p-7 md:p-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(111,242,173,.16),transparent_35%),linear-gradient(135deg,rgba(47,109,246,.12),transparent_48%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_15%,rgba(180,140,40,.08),transparent_40%),radial-gradient(ellipse_at_20%_85%,rgba(160,50,30,.06),transparent_35%),linear-gradient(145deg,rgba(31,23,18,.6),transparent_55%)]" />
             <div className="relative flex flex-wrap items-end justify-between gap-6">
               <div className="flex items-center gap-5">
                 <TeamMark team={team} size="lg" />
                 <div>
-                  <p className="wc-kicker">GROUP {team.group} / TEAM FILE</p>
+                  <p className="wc-kicker">{team.group} 组 / 球队资料</p>
                   <h1 className="mt-2 text-4xl font-black tracking-[-.055em] md:text-6xl">{team.nameCn}</h1>
                   <p className="mt-2 uppercase tracking-[.12em] text-[var(--wc-text-muted)]">{team.nameEn}</p>
                 </div>
               </div>
-              <span className="font-mono text-6xl font-black text-white/[.055]">{team.group}</span>
+              <span className="font-mono text-6xl font-black text-[rgba(180,140,40,.06)]">{team.group}</span>
             </div>
           </header>
 
@@ -61,12 +61,12 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
 
             <div className="mt-9 grid gap-8 lg:grid-cols-[.7fr_1.3fr]">
               <aside>
-                <p className="wc-kicker">TECHNICAL STAFF</p>
+                <p className="wc-kicker">技术团队</p>
                 <h2 className="mt-2 text-lg font-black">主教练</h2>
                 <p className="mt-3 rounded-xl bg-[var(--wc-surface-muted)] p-4 text-sm text-[var(--wc-text-secondary)]">
                   {team.coach ?? '待补充'}
                 </p>
-                <p className="wc-kicker mt-8">KEY PLAYERS</p>
+                <p className="wc-kicker mt-8">核心球员</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {keyPlayers.map((player) => (
                     <span key={player} className="rounded-full border border-[var(--wc-card-border)] px-3 py-1.5 text-xs text-[var(--wc-text-secondary)]">
@@ -77,11 +77,11 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
               </aside>
 
               <section>
-                <p className="wc-kicker">RECENT RECORD</p>
+                <p className="wc-kicker">近年记录</p>
                 <h2 className="mt-2 text-lg font-black">近年战绩</h2>
-                <div className="mt-4 space-y-3">
+                <div className="mt-4 space-y-4">
                   {resultSections.map((section) => (
-                    <p key={section} className="border-l border-[var(--wc-emerald)] pl-4 text-sm leading-7 text-[var(--wc-text-secondary)]">
+                    <p key={section} className="border-l-2 border-[var(--wc-emerald)] py-1 pl-4 text-sm leading-8 text-[var(--wc-text-secondary)]">
                       {section}
                     </p>
                   ))}

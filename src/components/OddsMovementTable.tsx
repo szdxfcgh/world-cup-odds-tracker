@@ -204,29 +204,29 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
   const getVerdictStyle = (verdict: MarketVerdict) => {
     switch (verdict) {
       case '升温':
-        return 'bg-green-50 text-green-700';
+        return 'bg-[rgba(80,130,60,.12)] text-[#8ab870] border border-[rgba(80,130,60,.2)]';
       case '降温':
-        return 'bg-orange-50 text-orange-700';
+        return 'bg-[rgba(180,140,40,.1)] text-[#c4a84a] border border-[rgba(180,140,40,.18)]';
       case '淘汰':
-        return 'bg-red-50 text-red-700';
+        return 'bg-[rgba(160,60,40,.12)] text-[#c87058] border border-[rgba(160,60,40,.2)]';
       case '待开赛':
-        return 'bg-gray-100 text-gray-500';
+        return 'bg-[rgba(255,255,255,.04)] text-[var(--wc-text-muted)] border border-[var(--wc-card-border)]';
     }
   };
 
   const getChangeStyle = (change: number) => {
-    if (change < 0) return 'text-green-600';
-    if (change > 0) return 'text-red-600';
-    return 'text-gray-500';
+    if (change < 0) return 'text-[#8ab870]';
+    if (change > 0) return 'text-[#c87058]';
+    return 'text-[var(--wc-text-muted)]';
   };
 
   const getRankStyle = (rank: number) => {
-    if (rank === 1) return 'bg-yellow-400 text-yellow-900 font-bold text-sm px-3 py-1';
-    if (rank === 2) return 'bg-gray-300 text-gray-800 font-bold text-sm px-3 py-1';
-    if (rank === 3) return 'bg-orange-300 text-orange-900 font-bold text-sm px-3 py-1';
-    if (rank <= 4) return 'bg-blue-200 text-blue-900 font-semibold text-sm px-3 py-1';
-    if (rank <= 8) return 'bg-blue-100 text-blue-800 font-medium';
-    return 'text-gray-500';
+    if (rank === 1) return 'bg-[rgba(180,140,40,.15)] text-[#c9a84a] font-bold text-sm px-3 py-1 border border-[rgba(180,140,40,.25)]';
+    if (rank === 2) return 'bg-[rgba(160,150,130,.1)] text-[#b0a898] font-bold text-sm px-3 py-1 border border-[rgba(160,150,130,.2)]';
+    if (rank === 3) return 'bg-[rgba(160,100,40,.12)] text-[#c4a04a] font-bold text-sm px-3 py-1 border border-[rgba(160,100,40,.2)]';
+    if (rank <= 4) return 'bg-[rgba(100,80,50,.1)] text-[#a09585] font-semibold text-sm px-3 py-1 border border-[rgba(100,80,50,.15)]';
+    if (rank <= 8) return 'bg-[rgba(100,80,50,.08)] text-[var(--wc-text-secondary)] font-medium';
+    return 'text-[var(--wc-text-muted)]';
   };
 
   return (
@@ -255,8 +255,8 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
             {movementData.map((row, idx) => (
               <tr
                 key={row.teamId}
-                className={`border-b border-slate-100 transition-colors ${
-                  row.isEliminated ? 'bg-slate-50 opacity-70' : 'hover:bg-[var(--wc-bg)]'
+                className={`border-b border-[var(--wc-card-border)] transition-colors ${
+                  row.isEliminated ? 'bg-[rgba(255,255,255,.02)] opacity-70' : 'hover:bg-[rgba(160,120,36,.04)]'
                 }`}
               >
                 <td className="py-3 px-3 text-sm text-[var(--wc-text-secondary)]">{idx + 1}</td>
@@ -264,7 +264,7 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
                 <td className="py-3 px-3">
                   <div className="flex items-center gap-2">
                     <span className="font-medium text-[var(--wc-text)] text-sm">{row.teamNameCn}</span>
-                    <span className="text-xs text-slate-400">{row.teamNameEn}</span>
+                    <span className="text-xs text-[var(--wc-text-muted)]">{row.teamNameEn}</span>
                   </div>
                 </td>
 
@@ -279,7 +279,7 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
                     <span className="text-sm font-bold text-[var(--wc-text)]">
                       {row.lastMatchOdds.toFixed(2)}
                     </span>
-                    <div className="text-xs text-slate-400">{row.lastMatchLabel}</div>
+                    <div className="text-xs text-[var(--wc-text-muted)]">{row.lastMatchLabel}</div>
                   </div>
                 </td>
 
@@ -308,7 +308,7 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
 
                 <td className="py-3 px-3 text-center">
                   {row.verdict === '待开赛' ? (
-                    <span className="text-slate-400 text-sm">待定</span>
+                    <span className="text-[var(--wc-text-muted)] text-sm">待定</span>
                   ) : (
                     <span className={`inline-flex items-center rounded-md ${getRankStyle(row.finalRank)}`}>
                       {row.finalRank === 1 ? '🏆 ' : ''}
@@ -324,23 +324,23 @@ export default function OddsMovementTable({ year = 2026 }: { year?: number }) {
 
       {/* Summary stats */}
       <div className="mt-6 pt-4 border-t border-[var(--wc-card-border)] grid grid-cols-3 gap-4">
-        <div className="text-center p-3 bg-emerald-50 rounded-lg">
-          <div className="text-2xl font-bold text-emerald-600">
+        <div className="text-center p-3 rounded-lg bg-[rgba(80,130,60,.08)] border border-[rgba(80,130,60,.15)]">
+          <div className="text-2xl font-bold text-[#8ab870]">
             {movementData.filter((r) => r.verdict === '升温').length}
           </div>
-          <div className="text-xs text-emerald-700">升温球队</div>
+          <div className="text-xs text-[#8ab870]">升温球队</div>
         </div>
-        <div className="text-center p-3 bg-amber-50 rounded-lg">
-          <div className="text-2xl font-bold text-amber-600">
+        <div className="text-center p-3 rounded-lg bg-[rgba(180,140,40,.08)] border border-[rgba(180,140,40,.15)]">
+          <div className="text-2xl font-bold text-[#c4a84a]">
             {movementData.filter((r) => r.verdict === '降温').length}
           </div>
-          <div className="text-xs text-amber-700">降温球队</div>
+          <div className="text-xs text-[#c4a84a]">降温球队</div>
         </div>
-        <div className="text-center p-3 bg-red-50 rounded-lg">
-          <div className="text-2xl font-bold text-red-600">
+        <div className="text-center p-3 rounded-lg bg-[rgba(160,60,40,.08)] border border-[rgba(160,60,40,.15)]">
+          <div className="text-2xl font-bold text-[#c87058]">
             {movementData.filter((r) => r.verdict === '淘汰').length}
           </div>
-          <div className="text-xs text-red-700">已淘汰球队</div>
+          <div className="text-xs text-[#c87058]">已淘汰球队</div>
         </div>
       </div>
 

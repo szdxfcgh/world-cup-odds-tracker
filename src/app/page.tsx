@@ -58,10 +58,10 @@ export default async function HomePage() {
         <section>
           <div className="section-heading">
             <div>
-              <p className="wc-kicker">MATCHDAY COVER</p>
+              <p className="wc-kicker">焦点之夜</p>
               <h2>焦点比赛</h2>
             </div>
-            <p>ISSUE 01 / OPENING NIGHT</p>
+            <p>第一期 · 揭幕战</p>
           </div>
           <FeaturedMatch
             match={featuredMatch}
@@ -76,10 +76,10 @@ export default async function HomePage() {
           <section>
             <div className="section-heading">
               <div>
-                <p className="wc-kicker">TODAY&apos;S FIXTURES</p>
+                <p className="wc-kicker">今日赛程</p>
                 <h2>今日赛程</h2>
               </div>
-              <p>ASIA / SHANGHAI TIME</p>
+              <p>上海时间 / GMT+8</p>
             </div>
             <div className="data-strip">
               {matches.slice(0, 4).map((match) => {
@@ -109,10 +109,10 @@ export default async function HomePage() {
           <section>
             <div className="section-heading">
               <div>
-                <p className="wc-kicker">POWER INDEX</p>
+                <p className="wc-kicker">夺冠指数</p>
                 <h2>夺冠热门</h2>
               </div>
-              <p>LOWER ODDS / HIGHER HEAT</p>
+              <p>赔率越低 / 热度越高</p>
             </div>
             <div className="data-strip">
               {favorites.map((favorite, index) => {
@@ -140,10 +140,10 @@ export default async function HomePage() {
         <section>
           <div className="section-heading">
             <div>
-              <p className="wc-kicker">DIRECTORY</p>
+              <p className="wc-kicker">快速导航</p>
               <h2>快速目录</h2>
             </div>
-            <p>FIVE DATA DESKS</p>
+            <p>五大数据板块</p>
           </div>
           <div className="editorial-index">
             {navCards.map((card) => (
@@ -157,7 +157,7 @@ export default async function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-[rgba(201,148,46,.08)]">
+      <footer className="border-t border-[rgba(180,140,40,.08)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-[11px] text-[var(--wc-text-muted)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8" style={{ letterSpacing: '.04em' }}>
           <span>RAGNARÖK · 诸神黄昏数据杂志</span>
           <span>非官方预测项目 · 数据仅供学习与编辑展示</span>

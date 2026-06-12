@@ -33,7 +33,7 @@ export default function OddsPage() {
               onClick={() => setSelectedYear(year)}
               className={`rounded-full border px-4 py-2 text-xs font-bold transition-colors ${
                 selectedYear === year
-                  ? 'border-[var(--wc-emerald)] bg-[var(--wc-emerald)] text-[#04110a]'
+                  ? 'border-[var(--wc-emerald)] bg-[var(--wc-emerald)] text-[#100c0a]'
                   : 'border-[var(--wc-card-border)] bg-[var(--wc-card-bg)] text-[var(--wc-text-secondary)] hover:text-white'
               }`}
             >
